@@ -1,4 +1,5 @@
 import requests
+import json()
 
 class DataManager:
     #This class is responsible for talking to the Google Sheet.
@@ -7,7 +8,7 @@ class DataManager:
         self.data = ''
     def get(self):
         self.get_response = requests.get(url=self.url)
-        return self.get_response
+        return self.get_response.json()
     def post(self):
         self.post_response = requests.get(url=self.url, json=self.data)
         return self.post_response

@@ -13,6 +13,10 @@ def main():
     sheet = DataManager(token=token)
     sheet.get_sheet()
     response = sheet.get_response
-    print(response)
+    rows = response["prices"]
+    country_codes = []
+    for row in rows:
+        country_codes.append(row["iataCode"])
+  
 if __name__ == "__main__":
     main()

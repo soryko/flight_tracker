@@ -6,7 +6,7 @@ class FlightSearch:
         self.url = 'https://api.tequila.kiwi.com/v2'
         self.endpoint = ''
         self.params = {}
-        self.api_key = 
+        self.api_key = ""
         self.headers = { 
             "apikey": self.api_key,
             }

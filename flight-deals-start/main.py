@@ -8,10 +8,11 @@ def configure():
     load_dotenv()
 
 def main():
-    sheet = DataManager()
-    sheet.get()
     configure()
-    bearer = "Bearer " + os.getenv(bearer)
-    sheet.bearer = bearer
+    token = os.getenv('sheet_token')
+    sheet = DataManager(token=token)
+    sheet.get_sheet()
+    response = sheet.get_response
+    print(response)
 if __name__ == "__main__":
     main()

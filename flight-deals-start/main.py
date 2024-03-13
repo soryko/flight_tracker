@@ -1,9 +1,17 @@
 #This file will need to use the DataManager,FlightSearch, FlightData, NotificationManager classes to achieve the program requirements.
-import data_manager
+from data_manager import DataManager
 import flight_search
+from dotenv import load_dotenv
+import os
 
+def configure():
+    load_dotenv()
 
 def main():
-    data = data_manager()
+    sheet = DataManager()
+    sheet.get()
+    configure()
+    bearer = "Bearer " + os.getenv(bearer)
+    sheet.bearer = bearer
 if __name__ == "__main__":
     main()

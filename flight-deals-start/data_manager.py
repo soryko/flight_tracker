@@ -12,5 +12,5 @@ class DataManager:
         self.get_response = requests.get(url=self.url, headers=self.headers).json()
         return self.get_response
     def post_sheet(self):
-        self.post_response = requests.get(url=self.url,headers=self.headers, json=self.data)
+        self.post_response = requests.put(url=self.url,headers=self.headers, json=self.data)
         return self.post_response

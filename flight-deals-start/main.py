@@ -35,7 +35,7 @@ def main():
         data = response.json()['data'][0]
         flight_ = FlightData(data)
         flight_data = flight_.get_flight_data()
-        flight_.get_csv()
+    flight_.get_csv()
         print(flight_data.df.head())
         break
         #print(push_data)

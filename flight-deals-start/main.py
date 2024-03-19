@@ -32,25 +32,22 @@ def main():
         #print(search.params)
         response = search.get_flights()
         response.raise_for_status()
-        data = response.json()['data'][0]
-        flight_ = FlightData(data)
-        flight_data = flight_.get_flight_data()
-    flight_.get_csv()
-        print(flight_data.df.head())
-        break
-        #print(push_data)
-'''        sheet_data = {
+        try:
+            data = response.json()['data'][0]
+            flight_ = FlightData(data)
+        except IndexError:
+            return None
+        flight_.get_flight_data()
+        flight_.get_csv()
+        print(flight_.df)
+        sheet_data = {
             "price": {
                 "iataCode": ctry_code
             }
         }
-        if flight_data.price < code[ctry_code]:
+        if flight_.price < code[ctry_code]:
             update_sheet = DataManager(token=token,data=sheet_data)
             update_sheet.post_sheet()
-
-        FlightData(push_data).get_csv(push_data)
-'''
-
         
 if __name__ == "__main__":
     main()

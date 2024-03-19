@@ -12,7 +12,7 @@ class FlightData:
         self.origin_city = data["route"][0]["cityFrom"]
         self.origin_airport = data["route"][0]["flyFrom"]
         self.destination_city = data["route"][0]["cityTo"]
-        self.destination_airpot = data["route"][0]["flyTo"]
+        self.destination_airport = data["route"][0]["flyTo"]
         self.out_date = data["route"][0]["local_departure"].split("T")[0]
         self.return_date = data["route"][1]["local_departure"].split("T")[0]
 
@@ -21,11 +21,11 @@ class FlightData:
                        self.origin_city, 
                        self.origin_airport,
                        self.destination_city,
-                       self.destination_airpot,
+                       self.destination_airport,
                        self.out_date,
                        self.return_date]
         
-        self.df = pd.DataFrame(flight_data, columns=["price","origin_city", "origin_airport", "destination_city", "destination_airport", "out_date", "return_date"])
+        self.df = pd.DataFrame([flight_data], columns=["price","origin_city", "origin_airport", "destination_city", "destination_airport", "out_date", "return_date"])
         return flight_data
 
     def get_csv(self):
